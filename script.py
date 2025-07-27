@@ -54,3 +54,11 @@ def delete_todo(todo_id: int):
             del todo_list[index]
             return {"message": "ToDo deleted successfully"}
     raise HTTPException(status_code=404, detail="ToDo not found")
+
+if __name__ == "__main__":
+    import json
+    info = get_system_info()
+    with open("system_info.json", "w") as f:
+        json.dump(info, f, indent=4)
+    print("System information saved to system_info.json")
+
